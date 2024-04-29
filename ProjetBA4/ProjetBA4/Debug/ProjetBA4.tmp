@@ -1,0 +1,32 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.6</VERSION>
+ <DEVICE>"ATmega128"</DEVICE>
+ <WORKING_DIR>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m128def.inc</FILE>
+  <FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\macros.asm</FILE>
+  <FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\definitions.asm</FILE>
+  <FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\test_routine.asm</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\Debug\ProjetBA4.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>ProjetBA4.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>ProjetBA4.map</FILE>
+  <FILE>ProjetBA4.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm</FILE><LINE>13</LINE></reset>
+  <main><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm</FILE><LINE>21</LINE></main>
+  <test_routine><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\test_routine.asm</FILE><LINE>8</LINE></test_routine>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -2,11 +2,23 @@
 ; ProjetBA4.asm
 ;
 ; Created: 27/04/2024 11:15:23
-; Author : arnob
+; Author : Arno Laurie
 ;
 
 
-; Replace with your application code
-start:
-    inc r16
-    rjmp start
+.include "macros.asm"
+.include "definitions.asm"
+
+
+reset: 
+	LDSP ramend
+	ldi r16, 0x00
+	ldi r17, 0x00
+	rjmp main
+
+.include "test_routine.asm"
+
+main:
+	inc r16
+	rcall test_routine
+	rjmp main
