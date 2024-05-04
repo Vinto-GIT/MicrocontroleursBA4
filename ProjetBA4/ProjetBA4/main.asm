@@ -17,8 +17,9 @@ reset:
 	rjmp main
 
 .include "test_routine.asm"
+;.include "kpd4x4.asm"
 
 main:
-	inc r16
 	rcall test_routine
+	;rcall kpd_main
 	rjmp main

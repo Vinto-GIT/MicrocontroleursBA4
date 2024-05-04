@@ -15,7 +15,7 @@
     <Name>ProjetBA4</Name>
     <RootNamespace>ProjetBA4</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
-    <EntryFile>$(MSBuildProjectDirectory)\main.asm</EntryFile>
+    <EntryFile>$(MSBuildProjectDirectory)\kpd4x4.asm</EntryFile>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
@@ -79,6 +79,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="definitions.asm">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="kpd4x4.asm">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="macros.asm">

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\main.asm Mon Apr 29 15:47:01 2024
+AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm Sat May 04 16:41:28 2024
 
 
 EQU  SIGNATURE_000 0000001e
@@ -938,6 +938,31 @@ EQU  SERVO1       00000004
 EQU  POT          00000000
 EQU  BNC1         00000002
 EQU  BNC2         00000004
-CSEG reset        00000000
-CSEG main         00000005
-CSEG test_routine 00000003
+EQU  KPDD         00000011
+EQU  KPDO         00000012
+EQU  KPDI         00000010
+EQU  KPD_DELAY    0000001e
+DEF  wr0          r2
+DEF  wr1          r1
+DEF  mask         r14
+DEF  wr2          r15
+CSEG reset        00000400
+CSEG isr_ext_int0 0000000a
+CSEG isr_ext_int1 00000014
+CSEG isr_ext_int2 0000001e
+CSEG isr_ext_int3 00000028
+CSEG column_detect 00000032
+CSEG col1         00000034
+CSEG WAIT_MS@WAIT_MS@3290 00000037
+CSEG WAIT_MS@WAIT_MS@3319 0000004c
+CSEG col2         00000068
+CSEG isr_return   00000104
+CSEG WAIT_MS@WAIT_MS@3363 0000006b
+CSEG WAIT_MS@WAIT_MS@3392 00000080
+CSEG col3         0000009c
+CSEG WAIT_MS@WAIT_MS@3436 0000009f
+CSEG WAIT_MS@WAIT_MS@3465 000000b4
+CSEG col4         000000d0
+CSEG WAIT_MS@WAIT_MS@3509 000000d3
+CSEG WAIT_MS@WAIT_MS@3538 000000e8
+CSEG main         0000040e
