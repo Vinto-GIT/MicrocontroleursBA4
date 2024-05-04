@@ -84,10 +84,16 @@
     <Compile Include="kpd4x4.asm">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="lcd.asm">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="macros.asm">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="main.asm">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="printf.asm">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="test_routine.asm">

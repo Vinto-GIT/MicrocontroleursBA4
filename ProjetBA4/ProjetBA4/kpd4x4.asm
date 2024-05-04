@@ -114,23 +114,23 @@ col4:
 	rjmp	isr_return
 
 isr_return:
-	INVP	PORTB,0		; visual feedback of key pressed acknowledge
-	ldi		_w,10		; sound feedback of key pressed acknowledge
+	;INVP	PORTB,0		; visual feedback of key pressed acknowledge
+	;ldi		_w,10		; sound feedback of key pressed acknowledge
 ;beep01:	
 	; TO BE COMPLETED AT THIS LOCATION
 	
 	;_LDI	wr2,0xff
 	;reti
 	
-;.include "lcd.asm"			; include UART routines
-;.include "printf.asm"		; include formatted printing routines
+.include "lcd.asm"			; include UART routines
+.include "printf.asm"		; include formatted printing routines
 
 ; === initialization and configuration ===
 
 .org 0x400
 
 reset:	LDSP	RAMEND		; Load Stack Pointer (SP)
-	;rcall	LCD_init		; initialize UART
+	rcall	LCD_init		; initialize UART
 
 	OUTI	KPDD,0xf0		; bit0-3 pull-up and bits4-7 driven low
 	OUTI	KPDO,0x0f		;>(needs the two lines)
@@ -138,23 +138,24 @@ reset:	LDSP	RAMEND		; Load Stack Pointer (SP)
 	OUTI	EIMSK,0x0f		; enable INT0-INT3
 	OUTI	EICRB,0b0		;>at low level
 	;sbi		DDRE,SPEAKER	; enable sound
+	sei
 
-;	PRINTF LCD
-;.db	CR,CR,"hello world"
+	PRINTF LCD
+.db	CR,CR,"hello world"
 
-;	clr		wr0
-;	clr		wr1
-;	clr		wr2
+	clr		wr0
+	clr		wr1
+	clr		wr2
 
-;	clr		a1				
-;	clr		a2
-;	clr		a3
-;	clr		b1
-;	clr		b2
-;	clr		b3
+	clr		a1				
+	clr		a2
+	clr		a3
+	clr		b1
+	clr		b2
+	clr		b3
 
-;	sei
-	;jmp	main				; not useful in this case, kept for modularity
+	sei
+	jmp	main				; not useful in this case, kept for modularity
 
 	; === main program ===
 main:
@@ -173,11 +174,14 @@ main:
 	; TO BE COMPLETED AT THIS LOCATION		; decoding ascii
 	
 	
-;PRINTF LCD
-;.db	CR,LF,"KPD=",FHEX,a," ascii=",FHEX,b
-;.db	0
-;	rjmp	main
+PRINTF LCD
+.db	CR,LF,"KPD=",FHEX,a," ascii=",FHEX,b
+.db	0
+	rjmp	main
 	
 ; code conversion table, character set #1 key to ASCII	
-;KeySet01:
-;.db ; TO BE COMPLETED AT THIS LOCATION
+KeySet01:
+.db '1', '2', '3', 'A'
+.db '4', '5', '6', 'B'
+.db '7', '8', '9', 'C'
+.db '*', '0', '#', 'D'
