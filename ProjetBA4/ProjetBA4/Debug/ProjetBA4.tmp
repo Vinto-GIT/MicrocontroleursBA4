@@ -26,17 +26,18 @@
   <FILE>ProjetBA4.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <reset><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>132</LINE></reset>
-  <isr_ext_int0><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>37</LINE></isr_ext_int0>
-  <isr_ext_int1><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>44</LINE></isr_ext_int1>
-  <isr_ext_int2><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>50</LINE></isr_ext_int2>
-  <isr_ext_int3><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>56</LINE></isr_ext_int3>
-  <column_detect><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>66</LINE></column_detect>
-  <col1><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>68</LINE></col1>
-  <col2><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>80</LINE></col2>
-  <isr_return><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>116</LINE></isr_return>
-  <col3><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>92</LINE></col3>
-  <col4><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>104</LINE></col4>
+  <reset><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>159</LINE></reset>
+  <isr_ext_int0><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>40</LINE></isr_ext_int0>
+  <isr_ext_int1><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>47</LINE></isr_ext_int1>
+  <isr_ext_int2><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>53</LINE></isr_ext_int2>
+  <isr_ext_int3><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>59</LINE></isr_ext_int3>
+  <column_detect><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>70</LINE></column_detect>
+  <col1><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>72</LINE></col1>
+  <col2><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>84</LINE></col2>
+  <isr_return><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>122</LINE></isr_return>
+  <col3><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>96</LINE></col3>
+  <col4><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>108</LINE></col4>
+  <print_key><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>138</LINE></print_key>
   <LCD_wr_ir><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\lcd.asm</FILE><LINE>10</LINE></LCD_wr_ir>
   <lcd_4us><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\lcd.asm</FILE><LINE>18</LINE></lcd_4us>
   <lcd_2us><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\lcd.asm</FILE><LINE>20</LINE></lcd_2us>
@@ -94,7 +95,8 @@
   <_mul41><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\printf.asm</FILE><LINE>431</LINE></_mul41>
   <__m41><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\printf.asm</FILE><LINE>433</LINE></__m41>
   <__d41><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\printf.asm</FILE><LINE>449</LINE></__d41>
-  <main><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>161</LINE></main>
-  <KeySet01><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>183</LINE></KeySet01>
+  <KeySet><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>199</LINE></KeySet>
+  <clear_code><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>149</LINE></clear_code>
+  <main><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\kpd4x4.asm</FILE><LINE>185</LINE></main>
  </LABELS>
 </ASSEMBLER_INFO>

@@ -11,18 +11,21 @@
 
 .include "macros.asm"		; include macro definitions
 .include "definitions.asm"	; include register/constant definitions
+	
+
 
 	; === definitions ===
 .equ	KPDD = DDRD
 .equ	KPDO = PORTD
 .equ	KPDI = PIND
 
-.equ	KPD_DELAY = 30	; msec, debouncing keys of keypad
+.equ	KPD_DELAY = 50	; msec, debouncing keys of keypad
 
-.def	wr0 = r2		; detected row in hex
-.def	wr1 = r1		; detected column in hex
+.def	wr0 = r2		; detected column in hex
+.def	wr1 = r1		; detected row in hex
 .def	mask = r14		; row mask indicating which row has been detected in bin
 .def	wr2 = r15		; semaphore: must enter LCD display routine, unary: 0 or other
+
 
 	; === interrupt vector table ===
 .org 0
@@ -43,25 +46,26 @@ isr_ext_int0:
 
 isr_ext_int1:
 	INVP	PORTB, 1
-	_LDI	wr1, 0x00
+	_LDI	wr1, 0x01
 	_LDI	mask, 0b00000010 ; detected in row2
 	rjmp	column_detect
 
 isr_ext_int2:
     INVP	PORTB, 2          ; Toggle PORTB, pin 0 for visual feedback
-    _LDI	wr1, 0x00
+    _LDI	wr1, 0x02
     _LDI	mask, 0b00000100  ; detected in row 3
     rjmp	column_detect
 
 isr_ext_int3:
     INVP	PORTB, 3          ; Toggle PORTB, pin 0 for visual feedback
-    _LDI	wr1, 0x00
+    _LDI	wr1, 0x03
     _LDI	mask, 0b00001000  ; detected in row 4
     rjmp	column_detect
 
 ;Detecting the column: each column is pulled up then, one at a time, each column 
 ; is pulled low and if that forces the previously found row to als be pulled low
 ; then we have the right column
+
 
 column_detect:
 	OUTI	KPDO,0xff	; bit4-7 (columns) driven high
@@ -113,23 +117,52 @@ col4:
 	INVP	PORTB, 7		;;debug
 	rjmp	isr_return
 
+
+	
 isr_return:
-	;INVP	PORTB,0		; visual feedback of key pressed acknowledge
-	;ldi		_w,10		; sound feedback of key pressed acknowledge
-;beep01:	
-	; TO BE COMPLETED AT THIS LOCATION
-	
-	;_LDI	wr2,0xff
-	;reti
-	
+    ; Calculate index of corresponding key : index = row*4 + column
+    ldi b0, 4
+    mul wr1, b0 ; wr1 = detected row, row*4 is stored in r0
+    add r0, wr0 ; + wr0 = detected column
+    mov b0, r0  ; r18 stores the index of the pressed key (first index is 0)
+    
+	rcall print_key
+	;call LCD_clear
+	ldi _w, 10 ; sound feedback of pressed acknowledge
+    sei ; Re-enable interrupts
+    reti ; Return from interrupt
+
+	beep01:
+	;to be completed
+	_LDI wr2, 0xff
+	reti
+
 .include "lcd.asm"			; include UART routines
 .include "printf.asm"		; include formatted printing routines
+
+print_key:
+	ldi ZH, high(2*KeySet) ;zh=r31
+	ldi ZL, low(2*KeySet)  ;zl=r30
+	add ZL, b0 ; add index to address of first value in lookup table
+	ldi b3, 0
+	adc ZH, b3
+	lpm a0, Z
+	cpi a0, '*'
+	breq clear_code
+	rcall LCD_putc  ;expects char in r18 == a0
+	ret
+clear_code:
+	rcall LCD_clear
+	PRINTF LCD
+	.db	CR,CR,"Code:"
+	ret
 
 ; === initialization and configuration ===
 
 .org 0x400
 
-reset:	LDSP	RAMEND		; Load Stack Pointer (SP)
+reset:	
+	LDSP	RAMEND			; Load Stack Pointer (SP)
 	rcall	LCD_init		; initialize UART
 
 	OUTI	KPDD,0xf0		; bit0-3 pull-up and bits4-7 driven low
@@ -137,12 +170,10 @@ reset:	LDSP	RAMEND		; Load Stack Pointer (SP)
 	OUTI	DDRB,0xff		; turn on LEDs
 	OUTI	EIMSK,0x0f		; enable INT0-INT3
 	OUTI	EICRB,0b0		;>at low level
-	;sbi		DDRE,SPEAKER	; enable sound
+	sbi		DDRE,SPEAKER	; enable sound
 	sei
-
 	PRINTF LCD
-.db	CR,CR,"hello world"
-
+	.db	CR,CR,"Code:"
 	clr		wr0
 	clr		wr1
 	clr		wr2
@@ -153,25 +184,15 @@ reset:	LDSP	RAMEND		; Load Stack Pointer (SP)
 	clr		b1
 	clr		b2
 	clr		b3
-
-	sei
-	jmp	main				; not useful in this case, kept for modularity
+	rjmp	main
 
 	; === main program ===
 main:
-
-	tst		wr2				; check flag/semaphore
-	breq	main
-	clr		wr2	
-
-	clr		a0
-	clr		a1
-	ldi		a0, 0x30
-	add		a0, wr1
-	ldi		a1, 0x30
-	add		a1, wr1
-
-	; TO BE COMPLETED AT THIS LOCATION		; decoding ascii
+	tst		wr2				; check flag/semaphore = check if key was pressed
+	breq	main			; loop back because no key was detected
+	clr		wr2
+    ; Optionally, clear LCD or handle additional display logic here
+    rjmp    main            ; Loop back to start of main
 	
 	
 PRINTF LCD
@@ -180,7 +201,7 @@ PRINTF LCD
 	rjmp	main
 	
 ; code conversion table, character set #1 key to ASCII	
-KeySet01:
+KeySet:
 .db '1', '2', '3', 'A'
 .db '4', '5', '6', 'B'
 .db '7', '8', '9', 'C'
