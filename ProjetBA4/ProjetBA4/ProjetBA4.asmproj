@@ -81,10 +81,10 @@
     <Compile Include="definitions.asm">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="keypadv2.asm">
+    <Compile Include="futaba_servo.asm">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="keypadv3.asm">
+    <Compile Include="keypadv2.asm">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="kpd4x4.asm">
@@ -100,6 +100,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="printf.asm">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="servo.asm">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="test_routine.asm">

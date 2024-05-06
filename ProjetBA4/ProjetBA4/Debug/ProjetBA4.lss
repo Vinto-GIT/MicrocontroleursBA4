@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm Mon May 06 15:30:30 2024
+AVRASM ver. 2.2.6  C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm Mon May 06 17:33:07 2024
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\avrasm\inc\m128def.inc'
 C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm(18): Including file 'C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\macros.asm'
@@ -4139,30 +4139,28 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 0002b0 f389                          breq    clear_code         ; Branch if key == *
                                  	;PRINTF LCD
                                  	;.db CR, CR, "Code:", FCHAR, a, 0
-0002b1 940e 003d                 	call LCD_putc
-0002b3 9508                          ret
+0002b1 dd8b                      	rcall LCD_putc
+0002b2 9508                          ret
                                  
                                  get_char:
-0002b4 9bc7
-0002b5 c002
-0002b6 98c7
-0002b7 c001
-0002b8 9ac7                      	INVP	PORTB, 7
-0002b9 e064                      	ldi     b0, 4
-0002ba 9e16                          mul     wr1, b0          ; wr1 <-- detected row*4
-0002bb 0c02                          add     r0, wr0          ; r0  <-- detected row*4 + detected column
-0002bc 2d60                          mov     b0, r0           ; b0  <-- index of key (starts at 0)
-0002bd e0f8                          ldi     ZH, high(2*KeySet)
-0002be e4e2                          ldi     ZL, low(2*KeySet)
-0002bf 0fe6                          add     ZL, b0
-0002c0 e090                      	ldi		b3, 0x00
-0002c1 1ff9                          adc     ZH, b3			   ; Adjust ZH with carry
-0002c2 9124                          lpm     a0, Z              ; Load the character from program memory
+0002b3 9bc7
+0002b4 c002
+0002b5 98c7
+0002b6 c001
+0002b7 9ac7                      	INVP	PORTB, 7
+0002b8 e064                      	ldi     b0, 4
+0002b9 9e16                          mul     wr1, b0          ; wr1 <-- detected row*4
+0002ba 0c02                          add     r0, wr0          ; r0  <-- detected row*4 + detected column
+0002bb 2d60                          mov     b0, r0           ; b0  <-- index of key (starts at 0)
+0002bc e0f8                          ldi     ZH, high(2*KeySet)
+0002bd e4e4                          ldi     ZL, low(2*KeySet)
+0002be 0fe6                          add     ZL, b0
+0002bf e090                      	ldi		b3, 0x00
+0002c0 1ff9                          adc     ZH, b3			   ; Adjust ZH with carry
+0002c1 9124                          lpm     a0, Z
                                  	;rcall LCD_putc
-0002c3 dfea                      	rcall print_code
-0002c4 9508                      	ret
-                                 
-                                 
+0002c2 dfeb                      	rcall print_code
+0002c3 9508                      	ret
                                  
                                  
                                  ; Initialization and configuration
@@ -4172,14 +4170,14 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 000400 ef0f
 000401 bf0d
 000402 e100
-000403 bf0e                          LDSP    RAMEND             ; Load Stack Pointer (SP)
-000404 dc58                          rcall   LCD_init           ; Initialize LCD
+000403 bf0e                          LDSP    RAMEND
+000404 dc58                          rcall   LCD_init
 000405 ef00
 000406 bb01                          OUTI    KPDD,0xf0          ; port D rows=bit0-3 as input
 000407 e00f
 000408 bb02                          OUTI    KPDO,0x0f          ; and columns = bits4-7 as output
 000409 ef0f
-00040a bb07                          OUTI    DDRB,0xff          ; Configure PORTB as output for debug signals
+00040a bb07                          OUTI    DDRB,0xff          ; output for debug
 00040b e00f
 00040c bf09                          OUTI    EIMSK,0x0f         ; Enable external interrupts INT0-INT3
 00040d e000
@@ -4195,30 +4193,30 @@ C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA
 000416 2799                      	clr b3
 000417 2400                      	clr r0
 000418 9478                      	sei
-                                 
 000419 de88                          rcall clear_code
-00041a c000                      	rjmp main
+00041a 940c 041c                 	jmp main
+                                 
                                  
                                  ; === main program loop ===
                                  main:
                                  	;Lookup table index = 4*row + col
-00041b 20ff                      	tst wr2
-00041c f409                      	brne go_to_get_char
-00041d cffd                          rjmp    main
+00041c 20ff                      	tst wr2
+00041d f409                      	brne go_to_get_char
+00041e cffd                          rjmp    main
                                  
                                  go_to_get_char:
-00041e 940e 02b4                 	call get_char
-000420 9508                      	ret
+00041f 940e 02b3                 	call get_char
+000421 9508                      	ret
                                  
                                  ; Keypad ASCII mapping table
                                  KeySet:
-000421 3231
-000422 4133                      .db '1', '2', '3', 'A'
-000423 3534
-000424 4236                      .db '4', '5', '6', 'B'
-000425 3837
-000426 4339                      .db '7', '8', '9', 'C'
-000427 302a
+000422 3231
+000423 4133                      .db '1', '2', '3', 'A'
+000424 3534
+000425 4236                      .db '4', '5', '6', 'B'
+000426 3837
+000427 4339                      .db '7', '8', '9', 'C'
+000428 302a
 
 
 RESOURCE USE INFORMATION
@@ -4249,15 +4247,15 @@ andi  :   7 asr   :   2 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0
 brcc  :   1 brcs  :   0 break :   0 breq  :  17 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   1 brlt  :   0 brmi  :   1 
 brne  :  48 brpl  :   1 brsh  :   1 brtc  :   5 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   1 call  :   2 cbi   :   8 cbr   :   0 
+brvs  :   0 bset  :   0 bst   :   1 call  :   1 cbi   :   8 cbr   :   0 
 clc   :   1 clh   :   0 cli   :   0 cln   :   0 clr   :  20 cls   :   0 
 clt   :   1 clv   :   0 clz   :   0 com   :   8 cp    :   1 cpc   :   3 
 cpi   :  11 cpse  :   0 dec   :  51 elpm  :   0 eor   :   0 fmul  :   0 
 fmuls :   0 fmulsu:   0 icall :   1 ijmp  :   1 in    :   5 inc   :   2 
-jmp   :   5 ld    :   6 ldd   :   0 ldi   : 124 lds   :   3 lpm   :  14 
+jmp   :   6 ld    :   6 ldd   :   0 ldi   : 124 lds   :   3 lpm   :  14 
 lsl   :   1 lsr   :   3 mov   :  56 movw  :   0 mul   :   1 muls  :   0 
 mulsu :   0 neg   :   0 nop   :   1 or    :   0 ori   :   2 out   :  33 
-pop   :  41 push  :  40 rcall :  27 ret   :  16 reti  :   4 rjmp  :  56 
+pop   :  41 push  :  40 rcall :  28 ret   :  16 reti  :   4 rjmp  :  55 
 rol   :  10 ror   :  13 sbc   :   3 sbci  :   0 sbi   :   8 sbic  :   0 
 sbis  :   8 sbiw  :   0 sbr   :   1 sbrc  :  11 sbrs  :   0 sec   :   0 
 seh   :   0 sei   :   5 sen   :   0 ser   :   0 ses   :   0 set   :   1 
@@ -4269,7 +4267,7 @@ Instructions used: 61 out of 114 (53.5%)
 "ATmega128" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000852   1474     26   1500  131072   1.1%
+[.cseg] 0x000000 0x000854   1474     26   1500  131072   1.1%
 [.dseg] 0x000100 0x000102      0      2      2    4096   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    4096   0.0%
 

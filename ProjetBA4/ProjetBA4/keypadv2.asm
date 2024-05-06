@@ -198,17 +198,15 @@ get_char:
 	ret
 
 
-
-
 ; Initialization and configuration
 .org 0x400
 
 reset:
-    LDSP    RAMEND             ; Load Stack Pointer (SP)
-    rcall   LCD_init           ; Initialize LCD
+    LDSP    RAMEND
+    rcall   LCD_init
     OUTI    KPDD,0xf0          ; port D rows=bit0-3 as input
     OUTI    KPDO,0x0f          ; and columns = bits4-7 as output
-    OUTI    DDRB,0xff          ; Configure PORTB as output for debug signals
+    OUTI    DDRB,0xff          ; output for debug
     OUTI    EIMSK,0x0f         ; Enable external interrupts INT0-INT3
     OUTI    EICRB,0x00		   ; Condition d'interrupt au niveau bas pour int4-7 = colonnes
 
@@ -222,9 +220,9 @@ reset:
 	clr b3
 	clr r0
 	sei
-
     rcall clear_code
-	rjmp main
+	jmp main
+
 
 ; === main program loop ===
 main:
