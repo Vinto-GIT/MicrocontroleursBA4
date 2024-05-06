@@ -176,10 +176,10 @@ print_code:
 	clr		wr2
     cpi     a0, '*'
     breq    clear_code         ; Branch if key == *
-	PRINTF LCD
-	.db CR, CR, "Code:", FCHAR, a, 0
-
-    rjmp main
+	;PRINTF LCD
+	;.db CR, CR, "Code:", FCHAR, a, 0
+	rcall LCD_putc
+    ret
 
 get_char:
 	INVP	PORTB, 7
@@ -192,9 +192,10 @@ get_char:
     add     ZL, b0
 	ldi		b3, 0x00
     adc     ZH, b3			   ; Adjust ZH with carry
-    lpm     a0, Z              ; Load the character from program memory
+    lpm     a0, Z
 	;rcall LCD_putc
-	rjmp print_code
+	rcall print_code
+	ret
 
 
 
@@ -222,7 +223,7 @@ reset:
 	clr r0
 	sei
 
-    ;rcall   LCD_clear
+    rcall clear_code
 	rjmp main
 
 ; === main program loop ===
@@ -233,7 +234,7 @@ main:
     rjmp    main
 
 go_to_get_char:
-	jmp get_char
+	call get_char
 	ret
 
 ; Keypad ASCII mapping table

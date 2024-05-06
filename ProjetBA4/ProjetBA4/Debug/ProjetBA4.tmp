@@ -28,7 +28,7 @@
  <LABELS>
   <current_code><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>14</LINE></current_code>
   <correct_code><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>15</LINE></correct_code>
-  <reset><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>205</LINE></reset>
+  <reset><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>206</LINE></reset>
   <isr_row1><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>42</LINE></isr_row1>
   <isr_row2><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>48</LINE></isr_row2>
   <isr_row3><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>54</LINE></isr_row3>
@@ -97,9 +97,9 @@
   <col4><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>139</LINE></col4>
   <clear_code><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>159</LINE></clear_code>
   <print_code><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>175</LINE></print_code>
-  <main><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>229</LINE></main>
   <get_char><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>184</LINE></get_char>
-  <KeySet><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>240</LINE></KeySet>
-  <go_to_get_char><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>235</LINE></go_to_get_char>
+  <KeySet><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>241</LINE></KeySet>
+  <main><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>230</LINE></main>
+  <go_to_get_char><FILE>C:\Users\arnob\Documents\EPFL\BA4\Microcontroleurs\PROJET\src\MicrocontroleursBA4\ProjetBA4\ProjetBA4\keypadv2.asm</FILE><LINE>236</LINE></go_to_get_char>
  </LABELS>
 </ASSEMBLER_INFO>
