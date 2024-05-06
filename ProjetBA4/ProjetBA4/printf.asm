@@ -1,6 +1,7 @@
 ; file	printf.asm   target ATmega128L-4MHz-STK300
 ; purpose library, formatted output generation
-; v2019.02 20180821 supports SRAM input from 0x0260
+; author (c) R.Holzer (adapted MICRO210/EE208 A.Schmid)
+; v2019.02 20180821 AxS supports SRAM input from 0x0260
 ;					through 0x02ff that should be reserved
 
 ; === description ===
@@ -67,8 +68,8 @@
 ; FSTR	1000'0101
 ; FREP	1000'0110
 ; FFUNC	1000'0111
-;		1000'0010
-;		1000'0011
+;	1000'0010
+;	1000'0011
 ; FESC	1000'0000
 
 ; examples
@@ -326,6 +327,7 @@ _printf_4b:
 ; ===============================================
 ; func	ftoa
 ; converts a fixed-point fractional number to an ascii string
+; author (c) Raphael Holzer
 ;
 ; in	a3-a0	variable to print
 ;	b0	base, 2 to 36, but usually decimal (10)
@@ -422,6 +424,7 @@ _hex2asc:
 ; === multiply 4byte*1byte ===
 ; funct mul41
 ; multiplies a3-a0 (4-byte) by b0 (1-byte)
+; author (c) Raphael Holzer, EPFL
 ; 
 ; in	a3..a0	multiplicand (argument to multiply)
 ;	b0	multiplier
